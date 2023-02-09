@@ -1,10 +1,11 @@
+from dataclasses import dataclass, field
+from piece import Piece
 
+@dataclass()
 class Square:
-
-    def __init__(self, row, col, piece=None):
-        self.row = row
-        self.col = col
-        self.piece = piece
+    row: int
+    col: int
+    piece: Piece = field(default=None)
 
     def has_piece(self):
         return self.piece is not None

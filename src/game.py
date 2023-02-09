@@ -37,7 +37,6 @@ class Game:
                     piece = self.board.squares[row][col].piece
 
                     # loading image into pygame
-                    print(piece.texture)
                     img = pygame.image.load(piece.texture)
 
                     # getting coords of the center of the square

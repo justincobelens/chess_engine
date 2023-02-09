@@ -9,8 +9,7 @@ class Board:
 
     def __init__(self):
         # creating a 2d-array for each column that represent the squares
-        self.squares = np.zeros((8, 8))
-        self.squares = [[0]*8]*8
+        self.squares = [[0, 0, 0, 0, 0, 0, 0, 0] for col in range(COLS)]
 
         self._create()
         self._add_pieces('white')
@@ -21,6 +20,7 @@ class Board:
         for row in range(ROWS):
             for col in range(COLS):
                 self.squares[row][col] = Square(row, col)
+
 
     def _add_pieces(self, color):
         # by default
