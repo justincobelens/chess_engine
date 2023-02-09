@@ -1,15 +1,15 @@
-import numpy as np
-
+from dataclasses import dataclass, field
 from const import *
 from square import Square
 from piece import *
 
 
+@dataclass
 class Board:
+    squares: list = field(init=False)
 
-    def __init__(self):
-        # creating a 2d-array for each column that represent the squares
-        self.squares = [[0, 0, 0, 0, 0, 0, 0, 0] for col in range(COLS)]
+    def __post_init__(self):
+        self.squares = [[0, 0, 0, 0, 0, 0, 0, 0] for _ in range(COLS)]
 
         self._create()
         self._add_pieces('white')
@@ -21,11 +21,9 @@ class Board:
             for col in range(COLS):
                 self.squares[row][col] = Square(row, col)
 
-
     def _add_pieces(self, color):
-        # by default
-        # row 1 and 6 only has pawns
-        # row 0 and 7 only has other pieces
+        # places pawns at row 1 and 6
+        # places other pieces at row 0 and 7
 
         row_pawn, row_other = (6, 7) if color == 'white' else (1, 0)
 
@@ -51,8 +49,3 @@ class Board:
         # king
         self.squares[row_other][4] = Square(row_other, 4, King(color=color))
 
-# squares = np.zeros((8, 8))
-# print(squares[0][0])
-#
-# squares = [[0]*8]*8
-# print(squares[0][0])

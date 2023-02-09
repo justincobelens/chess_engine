@@ -9,8 +9,8 @@ class Game:
     def __init__(self):
         self.board = Board()
 
-
-    def show_background(self, surface):
+    @staticmethod
+    def show_background(surface):
         for row in range(ROWS):
             for col in range(COLS):
 

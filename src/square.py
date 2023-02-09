@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
 from piece import Piece
 
-@dataclass()
+
+@dataclass
 class Square:
     row: int
     col: int
