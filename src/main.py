@@ -15,12 +15,14 @@ class Main:
 
     def mainloop(self):
 
+        game = self.game
+        screen = self.screen
+
         while True:
-            self.game.show_background(self.screen)
+            game.show_background(screen)
 
+            # looping through events if user wants to quit
             for event in pygame.event.get():
-
-                # looping through events if user wants to quit
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
