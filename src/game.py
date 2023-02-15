@@ -11,6 +11,7 @@ class Game:
         self.board = Board()
         self.dragger = Dragger()
 
+    # blit methods
     @staticmethod
     def show_background(surface):
         for row in range(ROWS):

@@ -17,8 +17,25 @@ class Dragger:
     initial_row: int = field(default=0)
     initial_col: int = field(default=0)
 
+    # blit methods
     def update_blit(self, surface):
-        pass
+        # enlarge texture create illusion of grabbing a piece
+
+        # texture
+        self.piece.set_texture(size=128)
+        texture = self.piece.texture
+
+        # image
+        img = pygame.image.load(texture)
+
+        # rect
+        img_center = (self.mouseX, self.mouseY)
+        self.piece.texture_rect = img.get_rect(center=img_center)
+
+        # blit
+        surface.blit(img, self.piece.texture_rect)
+
+    # other methods
 
     def update_mouse(self, pos: tuple[int, int]):
         self.mouseX, self.mouseY = pos  # (xcor, ycor)
